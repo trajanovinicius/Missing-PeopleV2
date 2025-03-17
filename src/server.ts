@@ -2,6 +2,7 @@ import "reflect-metadata";
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import { AppDataSource } from "./config/database";
 
 dotenv.config();
 
@@ -14,8 +15,15 @@ app.get("/", (req, res) => {
 	res.send("🚀 PlenoStack API rodando!");
 });
 
-const PORT = process.env.PORT || 3000;
+AppDataSource.initialize()
+	.then(() => {
+		console.log("✅ Conexão com o banco de dados estabelecida!");
 
-app.listen(PORT, () => {
-	console.log(`✅ Servidor rodando na porta ${PORT}`);
-});
+		const PORT = process.env.PORT || 3000;
+		app.listen(PORT, () => {
+			console.log(`✅ Servidor rodando na porta ${PORT}`);
+		});
+	})
+	.catch((error) => {
+		console.error("❌ Erro ao conectar no banco de dados:", error);
+	});
