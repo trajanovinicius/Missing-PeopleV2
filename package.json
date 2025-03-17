@@ -1,0 +1,12 @@
+{
+  "name": "pleno-stack-api",
+  "version": "1.0.0",
+  "description": "API desenvolvida em node.js com typescript utlizando conhecimentos sólidos de um dev nível pleno. O objetivo é se adequar a novas tecnologias e praticar para solidificar conhecimentos pré existentes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
